@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const MyCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
-  
+
   useEffect(() => {
-    
     fetch("http://localhost:5000/crowd/")
       .then((res) => res.json())
       .then((data) => {
@@ -13,33 +13,19 @@ const MyCampaign = () => {
         console.error("Error fetching campaigns:", error);
       });
   }, []);
- // Implement update functionality
-  const handleUpdate = (_id) => {
-    
-    console.log("Update campaign with ID:", _id);
-    fetch(`http://localhost:5000/crowd/${_id}`, {
-      method: "PUT",  
-      headers: {
-          "Content-Type": "application/json",
-      },
-      body: JSON.stringify(_id), 
-      
-  });
- 
-   console.log('successfully your updated data');
-  };
+  // Implement update functionality
 
   const handleDelete = (_id) => {
     fetch(`http://localhost:5000/crowd/${_id}`, {
       method: "DELETE",
     })
-    .then(res=>res.json())
+      .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
           alert("data deleted success");
         }
-      
+
         const reaming = campaigns.filter((campaign) => campaign._id !== _id);
         setCampaigns(reaming);
       })
@@ -71,12 +57,12 @@ const MyCampaign = () => {
               <td className="border px-4 py-2">{campaign.type}</td>
               <td className="border px-4 py-2">{campaign.deadline}</td>
               <td className="border px-4 py-2">
-                <button
+                <Link
+                  to={`/updateCampaign/${campaign._id}`}
                   className="bg-blue-500 text-white px-3 py-1 mr-2 rounded"
-                  onClick={() => handleUpdate(campaign._id)}
                 >
                   Update
-                </button>
+                </Link>
                 <button
                   className="bg-red-500 text-white px-3 py-1 rounded"
                   onClick={() => handleDelete(campaign._id)}

@@ -13,6 +13,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import DetailsPages from "../components/DetailsPages";
 import RunningCampaigns from "../components/RunningCampaigns";
 import RunningSingleCampaing from "../components/RunningSingleCampaing";
+import UpdateCampaignPage from "../components/UpdateCampaignPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -67,6 +68,14 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/crowd/${params.id}`),
       },
+      //Update Campaign Page
+      {
+        path: "/updateCampaign/:id",
+        element: <UpdateCampaignPage></UpdateCampaignPage>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/crowd/${params.id}`),
+      },
+
       {
         path: "/myCampaign",
         element: (
