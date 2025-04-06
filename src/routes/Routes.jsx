@@ -1,19 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage";
 import AllCampaign from "../components/AllCampaign";
-import MyDonations from "../components/MyDonations";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import AddNewCampaign from "../components/AddNewCampaign";
-import MyCampaign from "../components/MyCampaign";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Footer from "../pages/Footer";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import DetailsPages from "../components/DetailsPages";
+import MyCampaign from "../components/MyCampaign";
+import UpdateCampaignPage from "../components/UpdateCampaignPage";
+import MyDonations from "../components/MyDonations";
 import RunningCampaigns from "../components/RunningCampaigns";
 import RunningSingleCampaing from "../components/RunningSingleCampaing";
-import UpdateCampaignPage from "../components/UpdateCampaignPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,16 +25,16 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/allCampaign",
+        path: "/campaigns",
         element: <AllCampaign></AllCampaign>,
-        loader: () => fetch("http://localhost:5000/crowd"),
+        loader: () => fetch("http://localhost:5000/campaigns"),
       },
 
       {
         path: "/allCampaign/:id",
         element: <DetailsPages></DetailsPages>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/crowd/${params.id}`),
+          fetch(`http://localhost:5000/campaign/${params.id}`),
       },
 
       {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/addNewCampaign",
+        path: "/addCampaign",
         element: (
           <PrivateRoutes>
             <AddNewCampaign></AddNewCampaign>
@@ -54,26 +54,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/runnignCampaings",
+        path: "/runningCampaigns",
         element: <RunningCampaigns></RunningCampaigns>,
       },
-      // {
-      //   path: "/runnignCampaings/:id",
-      //   element: <RunningCampaigns></RunningCampaigns>,
-      //   loader: () => fetch(`http://localhost:5000/crowd`),
-      // },
       {
-        path: "/runnignCampaings/:id",
-        element: <RunningSingleCampaing></RunningSingleCampaing>,
+        path: "/runningCampaigns/:id",
+        element: <RunningSingleCampaing />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/crowd/${params.id}`),
-      },
-      //Update Campaign Page
-      {
-        path: "/updateCampaign/:id",
-        element: <UpdateCampaignPage></UpdateCampaignPage>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/crowd/${params.id}`),
+          fetch(`http://localhost:5000/campaign/${params.id}`),
       },
 
       {
@@ -84,6 +72,14 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+      // Update Campaign Page
+      {
+        path: "/updateCampaign/:id",
+        element: <UpdateCampaignPage></UpdateCampaignPage>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/myCampaign/${params.id}`),
+      },
+
       {
         path: "/login",
         element: <Login></Login>,

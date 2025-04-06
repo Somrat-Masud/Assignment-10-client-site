@@ -1,12 +1,16 @@
-# React + Vite
+# Website Name: CrowdFunding Platform  
+**Live Site:** [https://yourwebsite.com](https://yourwebsite.com)  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features  
+**User Authentication** – Secure login and signup with Firebase/Auth.  
+**Create & Manage Campaigns** – Users can create, edit, and delete fundraising campaigns.  
+**Donation System** – Secure payment integration for seamless donations.  
+ **Campaign Categories** – Different categories like Startup, Personal, Business, etc.  
+ **Real-time Updates** – Campaigns update dynamically with the latest donations.  
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack  
+- React.js (Frontend)  
+- Express.js & Node.js (Backend)  
+- MongoDB (Database)  
+- Firebase Authentication  
+- Tailwind CSS (Styling)

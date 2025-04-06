@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
+import swal from "sweetalert";
+
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { createUser, manageProfile } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,20 +15,30 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const PhotoUrl = form.PhotoUrl.value;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     console.log(name, email, password, PhotoUrl);
     createUser(email, password, PhotoUrl)
       .then((result) => {
         console.log(result.user);
         manageProfile(name, PhotoUrl);
+        if (!passwordRegex.test(password)) {
+          swal(
+            "Password must contain at least 1 uppercase, 1 lowercase, and be at least 6 characters long."
+          );
+
+          return;
+        }
+
         navigate(location?.state ? location.state : "/");
       })
+      .reset()
       .catch((error) => {
         console.log(error);
       });
   };
   return (
-    <div className="flex justify-center items-center  bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md mt-4">
+    <div className="flex justify-center items-center ">
+      <div className=" p-8 rounded-lg mt-4 border bg-gray-100 shadow-2xl">
         <h2 className="text-3xl font-bold text-center mb-6">Register</h2>
         <form onSubmit={handleSubmit}>
           <div>

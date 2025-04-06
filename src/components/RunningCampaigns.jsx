@@ -5,7 +5,7 @@ const RunningCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/crowd") //
+    fetch("http://localhost:5000/campaigns") //
       .then((res) => res.json())
       .then((data) => {
         const currentDate = new Date();
@@ -29,7 +29,7 @@ const RunningCampaigns = () => {
             <p className="text-gray-500">
               Deadline: {new Date(campaign.deadline).toLocaleDateString()}
             </p>
-            <Link to={`/runnignCampaings/${campaign._id}`}>
+            <Link to={`/runningCampaigns/${campaign._id}`}>
               <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
                 See More
               </button>

@@ -5,10 +5,10 @@ import { AuthContext } from "../providers/AuthProviders";
 const UpdateCampaignPage = () => {
   const loaderUser = useLoaderData();
   console.log(loaderUser);
-  const campaigns = Array.isArray(loaderUser) ? loaderUser : [loaderUser];
-  console.log(campaigns);
+  // const campaigns = Array.isArray(loaderUser) ? loaderUser : [loaderUser];
+  // console.log(campaigns);
   const { user } = useContext(AuthContext);
-  console.log(user);
+  //   console.log(user);
   const handleSubmitUpdated = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,9 +31,10 @@ const UpdateCampaignPage = () => {
       description,
     };
     console.log(UpdatedData);
-    fetch(`http://localhost:5000/crowd/${loaderUser?._id}`, {
+    console.log(loaderUser);
+    fetch(`http://localhost:5000/myCampaign/${loaderUser._id}`, {
       method: "PUT",
-      headers: { "content-type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(UpdatedData),
     })
       .then((res) => res.json())

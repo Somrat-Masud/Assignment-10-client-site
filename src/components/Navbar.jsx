@@ -33,7 +33,7 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
-            to="/allCampaign"
+            to="/campaigns"
             className={({ isActive }) =>
               isActive
                 ? "text-blue-600 font-bold border-b-2 border-blue-600 pb-1"
@@ -46,7 +46,7 @@ const Navbar = () => {
           {user && (
             <>
               <NavLink
-                to="/addNewCampaign"
+                to="/addCampaign"
                 className={({ isActive }) =>
                   isActive
                     ? "text-blue-600 font-bold border-b-2 border-blue-600 pb-1"
@@ -116,7 +116,6 @@ const Navbar = () => {
               alt=""
             />
           </p>
-          <p className="">Crowd Funding Application</p>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex ml-3">

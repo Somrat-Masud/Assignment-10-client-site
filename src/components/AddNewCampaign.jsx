@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProviders";
+import swal from "sweetalert";
 
 const AddNewCampaign = () => {
   const { user } = useContext(AuthContext);
@@ -26,7 +27,7 @@ const AddNewCampaign = () => {
       description,
     };
     console.log(newData);
-    fetch("http://localhost:5000/crowd", {
+    fetch("http://localhost:5000/addCampaign", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newData),
@@ -36,13 +37,13 @@ const AddNewCampaign = () => {
         console.log(data);
         // reset();
         if (data.insertedId) {
-          alert("data successfully");
+          swal("Data Successfully");
         }
       });
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-10">
+    <div className="max-w-lg mx-auto  p-6 rounded-lg shadow-md mt-10 border bg-gray-100">
       <h2 className="text-xl font-bold mb-4 text-center">Add New Campaign</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -146,39 +147,3 @@ const AddNewCampaign = () => {
 };
 
 export default AddNewCampaign;
-
-// export default AddNewCampaign;
-
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   const form = e.target;
-//   const name = form.name.value;
-//   const email = form.email.value;
-//   const quantity = form.quantity.value;
-//   const supplier = form.supplier.value;
-//   const photo = form.photo.value;
-//   const taste = form.taste.value;
-//   const category = form.category.value;
-//   const newCoffee = {
-//     name,
-//     email,
-//     quantity,
-//     supplier,
-//     photo,
-//     taste,
-//     category,
-//   };
-//   // console.log(newCoffee);
-//   fetch("http://localhost:5000/coffee", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(newCoffee),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       console.log(data);
-//       if (data.insertedId) {
-//         alert("data added successfully");
-//       }
-//     });
-// };

@@ -23,8 +23,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md ">
+    <div className="flex justify-center items-center h-screen  ">
+      <div className=" p-8 rounded-lg  border bg-gray-100 shadow-2xl ">
         <h2 className="text-3xl font-bold text-center mb-6">Login</h2>
         <form onSubmit={handleSubmit}>
           <div>
@@ -32,7 +32,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
-              className="w-full p-2 border rounded mt-1"
+              className="w-full p-2 border rounded mt-1  "
               placeholder="Enter your email"
               required
             />
@@ -42,7 +42,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              className="w-full p-2 border rounded mt-1"
+              className="w-full p-2 border rounded mt-1 "
               placeholder="Enter your password"
               required
             />

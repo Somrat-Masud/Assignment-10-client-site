@@ -1,6 +1,7 @@
 import AboutUs from "../components/AboutUs";
 import BannerSlider from "../components/BannerSlider ";
 import CausesCategory from "../components/CausesCategory";
+// import CausesCategory from "../components/CausesCategory";
 import RunningCampaigns from "../components/RunningCampaigns";
 
 const Home = () => {
@@ -16,9 +17,7 @@ const Home = () => {
         <RunningCampaigns></RunningCampaigns>
       </section>
       <section>
-        <div className="bg-gray-100 ">
-          <AboutUs></AboutUs>
-        </div>
+        <AboutUs></AboutUs>
       </section>
       <section>
         <CausesCategory></CausesCategory>
