@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 const RunningCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
-
   useEffect(() => {
     fetch("http://localhost:5000/campaigns") //
       .then((res) => res.json())

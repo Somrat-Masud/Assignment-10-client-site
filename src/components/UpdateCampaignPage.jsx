@@ -1,14 +1,11 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
+import swal from "sweetalert";
 
 const UpdateCampaignPage = () => {
   const loaderUser = useLoaderData();
-  console.log(loaderUser);
-  // const campaigns = Array.isArray(loaderUser) ? loaderUser : [loaderUser];
-  // console.log(campaigns);
   const { user } = useContext(AuthContext);
-  //   console.log(user);
   const handleSubmitUpdated = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -30,7 +27,6 @@ const UpdateCampaignPage = () => {
       deadline,
       description,
     };
-    console.log(UpdatedData);
     console.log(loaderUser);
     fetch(`http://localhost:5000/myCampaign/${loaderUser._id}`, {
       method: "PUT",
@@ -42,7 +38,7 @@ const UpdateCampaignPage = () => {
         console.log(data);
         // reset();
         if (data.modifiedCount > 0) {
-          alert("Updated successfully");
+          swal("Updated Successfully");
         }
       });
   };

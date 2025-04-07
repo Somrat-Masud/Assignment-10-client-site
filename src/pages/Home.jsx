@@ -1,13 +1,15 @@
 import AboutUs from "../components/AboutUs";
 import BannerSlider from "../components/BannerSlider ";
 import CausesCategory from "../components/CausesCategory";
-// import CausesCategory from "../components/CausesCategory";
 import RunningCampaigns from "../components/RunningCampaigns";
-
+import { Typewriter } from "react-simple-typewriter";
 const Home = () => {
   return (
     <div>
       <section>
+        <div className="text-center font-bold text-4xl p-4">
+          <Typewriter />
+        </div>
         {/* {banner} */}
         <BannerSlider></BannerSlider>
       </section>
