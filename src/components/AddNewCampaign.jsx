@@ -27,11 +27,14 @@ const AddNewCampaign = () => {
       description,
     };
     console.log(newData);
-    fetch("http://localhost:5000/addCampaign", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newData),
-    })
+    fetch(
+      "https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/addCampaign",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

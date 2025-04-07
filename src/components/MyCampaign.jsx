@@ -4,7 +4,9 @@ const MyCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/campaigns")
+    fetch(
+      "https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/campaigns"
+    )
       .then((res) => res.json())
       .then((data) => {
         setCampaigns(data);
@@ -16,9 +18,12 @@ const MyCampaign = () => {
   // Implement update functionality
 
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/myCampaign/${_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/myCampaign/${_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

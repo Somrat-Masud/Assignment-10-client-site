@@ -4,9 +4,9 @@ const AllCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    // fetch("http://localhost:5000/crowd")
+    // fetch("https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/crowd")
     fetch(
-      "http://localhost:5000/campaigns"
+      "https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/campaigns"
     )
       .then((res) => res.json())
       .then((data) => setCampaigns(data))

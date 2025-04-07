@@ -5,7 +5,7 @@ const DetailsPages = () => {
   const campaigns = Array.isArray(loader) ? loader : [loader];
   const handleAddSecion = (id) => {
     fetch(
-      "http://localhost:5000/campaign",
+      "https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/campaign",
       {
         method: "POST",
         headers: {

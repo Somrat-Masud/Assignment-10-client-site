@@ -28,11 +28,14 @@ const UpdateCampaignPage = () => {
       description,
     };
     console.log(loaderUser);
-    fetch(`http://localhost:5000/myCampaign/${loaderUser._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(UpdatedData),
-    })
+    fetch(
+      `https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/myCampaign/${loaderUser._id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(UpdatedData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

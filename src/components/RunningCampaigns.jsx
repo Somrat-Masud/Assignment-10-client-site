@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 const RunningCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/campaigns") //
+    fetch(
+      "https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/campaigns"
+    ) //
       .then((res) => res.json())
       .then((data) => {
         const currentDate = new Date();

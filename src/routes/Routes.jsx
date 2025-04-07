@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <AllCampaign></AllCampaign>,
         loader: () =>
           fetch(
-            "http://localhost:5000/campaigns"
+            "https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/campaigns"
           ),
       },
 
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <DetailsPages></DetailsPages>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/campaign/${params.id}`
+            `https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/campaign/${params.id}`
           ),
       },
 
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         element: <RunningSingleCampaing />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/campaign/${params.id}`
+            `https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/campaign/${params.id}`
           ),
       },
 
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
         element: <UpdateCampaignPage></UpdateCampaignPage>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/myCampaign/${params.id}`
+            `https://server-side-oozs4kotv-somrat-masuds-projects.vercel.app/myCampaign/${params.id}`
           ),
       },
 
