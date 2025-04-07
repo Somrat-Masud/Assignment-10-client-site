@@ -2,17 +2,18 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const DetailsPages = () => {
   const loader = useLoaderData();
-  console.log(loader);
-
   const campaigns = Array.isArray(loader) ? loader : [loader];
   const handleAddSecion = (id) => {
-    fetch("http://localhost:5000/campaign", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(id),
-    });
+    fetch(
+      "http://localhost:5000/campaign",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(id),
+      }
+    );
   };
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
@@ -56,5 +57,4 @@ const DetailsPages = () => {
     </div>
   );
 };
-
 export default DetailsPages;

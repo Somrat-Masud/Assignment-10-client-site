@@ -4,7 +4,7 @@ const MyCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/campaigns/")
+    fetch("http://localhost:5000/campaigns")
       .then((res) => res.json())
       .then((data) => {
         setCampaigns(data);

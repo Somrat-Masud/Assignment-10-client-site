@@ -5,7 +5,9 @@ const AllCampaigns = () => {
   const navigate = useNavigate();
   useEffect(() => {
     // fetch("http://localhost:5000/crowd")
-    fetch("http://localhost:5000/campaigns")
+    fetch(
+      "http://localhost:5000/campaigns"
+    )
       .then((res) => res.json())
       .then((data) => setCampaigns(data))
       .catch((err) => console.error("Error fetching campaigns:", err));

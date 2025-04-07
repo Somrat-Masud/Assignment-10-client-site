@@ -27,14 +27,19 @@ const router = createBrowserRouter([
       {
         path: "/campaigns",
         element: <AllCampaign></AllCampaign>,
-        loader: () => fetch("http://localhost:5000/campaigns"),
+        loader: () =>
+          fetch(
+            "http://localhost:5000/campaigns"
+          ),
       },
 
       {
         path: "/allCampaign/:id",
         element: <DetailsPages></DetailsPages>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campaign/${params.id}`),
+          fetch(
+            `http://localhost:5000/campaign/${params.id}`
+          ),
       },
 
       {
@@ -61,7 +66,9 @@ const router = createBrowserRouter([
         path: "/runningCampaigns/:id",
         element: <RunningSingleCampaing />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campaign/${params.id}`),
+          fetch(
+            `http://localhost:5000/campaign/${params.id}`
+          ),
       },
 
       {
@@ -77,7 +84,9 @@ const router = createBrowserRouter([
         path: "/updateCampaign/:id",
         element: <UpdateCampaignPage></UpdateCampaignPage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/myCampaign/${params.id}`),
+          fetch(
+            `http://localhost:5000/myCampaign/${params.id}`
+          ),
       },
 
       {

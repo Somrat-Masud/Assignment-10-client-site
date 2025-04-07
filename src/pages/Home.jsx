@@ -10,7 +10,6 @@ const Home = () => {
         <div className="text-center font-bold text-4xl p-4">
           <Typewriter />
         </div>
-        {/* {banner} */}
         <BannerSlider></BannerSlider>
       </section>
 
